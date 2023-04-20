@@ -1,4 +1,10 @@
 // new module header
+#define MAX_POINTS 32
+#define MAX_ARBITERS 16
+#define MAX_BODIES 256
+#define MAX_JOINTS 256
+#define MAX_CONTACTS 256
+
 managed struct Vec2
 {
 	float x, y;
@@ -44,11 +50,11 @@ managed struct Body
 	float mass, invMass;
 	float I, invI;
     
-	import void Set(const Vec2* w, float m);
+	import void Set(Vec2* w, float m);
 	import void AddForce(const Vec2* f);
 };
 
-struct Joint
+managed struct Joint
 {
 	Mat22* M;
 	Vec2* localAnchor1, localAnchor2;
@@ -72,10 +78,12 @@ managed struct FeaturePair
   char outEdge1;
   char inEdge2;
   char outEdge2;
-	int value;
+  import attribute int value;
+  import int get_value();
+  import void set_value(int value);
 };
 
-struct Contact
+managed struct Contact
 {
 	Vec2* position;
 	Vec2* normal;
@@ -89,18 +97,22 @@ struct Contact
 	FeaturePair* feature;
 };
 
-struct ArbiterKey
+managed struct ArbiterKey
 {
 	Body* body1;
 	Body* body2;
 };
 
-struct Arbiter
+managed struct Arbiter
 {
+  static import Arbiter* Create(Body* b1, Body* b2);
+  
+  import void Update(Contact* contacts[],  int numContacts);
+  
 	import void PreStep(float inv_dt);
 	import void ApplyImpulse();
 
-	//Contact contacts[MAX_POINTS];
+	Contact* contacts[MAX_POINTS];
 	int numContacts;
 
 	Body* body1;
@@ -108,4 +120,38 @@ struct Arbiter
 
 	// Combined friction
 	float friction;
+};
+
+
+
+managed struct Arbiters
+{
+  ArbiterKey* key;
+  Arbiter* value;  
+};
+
+struct World
+{
+	import void AddBody(Body* body);
+	import void AddJoint(Joint* joint);
+	import void Clear();
+
+	import void Step(float dt);
+
+	import void BroadPhase();
+
+	Body* bodies[MAX_BODIES];
+	Joint* joints[MAX_JOINTS];
+	Arbiters* arbiters[MAX_ARBITERS];
+	Vec2* gravity;
+	int iterations;
+	static import attribute bool accumulateImpulses;
+  static import bool get_accumulateImpulses();
+  static import void set_accumulateImpulses(bool value);
+	static import attribute bool warmStarting;
+  static import bool get_warmStarting();
+  static import void set_warmStarting(bool value);
+	static import attribute bool positionCorrection;
+  static import bool get_positionCorrection();
+  static import void set_positionCorrection(bool value);
 };
