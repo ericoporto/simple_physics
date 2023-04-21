@@ -4,7 +4,7 @@
 #define MAX_ARBITERS 16
 #define MAX_BODIES 256
 #define MAX_JOINTS 256
-#define MAX_CONTACTS 256
+#define MAX_CONTACTS 16
 
 managed struct Vec2
 {
@@ -91,6 +91,8 @@ managed struct FeaturePair
 
 managed struct Contact
 {
+  static import Contact* Create();
+  
 	Vec2* position;
 	Vec2* normal;
 	Vec2* r1, r2;
