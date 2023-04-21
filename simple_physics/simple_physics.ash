@@ -9,8 +9,9 @@ managed struct Vec2
 {
 	float x, y;
 
-  import static Vec2* New(float x, float y);
+  import static Vec2* New(float x, float y); // $AUTOCOMPLETESTATICONLY$
  	import void Set(float x, float y);
+  import Vec2* Abs();
   import Vec2* Negate();
 	import Vec2* Minus(Vec2* vb);
   import Vec2* Plus(Vec2* vb);
@@ -24,13 +25,14 @@ managed struct Mat22
 {
   float col1_x, col1_y, col2_x, col2_y;
   
-  import static Mat22* New(float col1_x, float col1_y, float col2_x, float col2_y);
-  import static Mat22* NewFromAngle(float angle);
-  import static Mat22* NewFromVec2(Vec2* col1, Vec2* col2);
+  import static Mat22* New(float col1_x, float col1_y, float col2_x, float col2_y); // $AUTOCOMPLETESTATICONLY$
+  import static Mat22* NewFromAngle(float angle); // $AUTOCOMPLETESTATICONLY$
+  import static Mat22* NewFromVec2(Vec2* col1, Vec2* col2); // $AUTOCOMPLETESTATICONLY$
   import Mat22* Transpose();
   import Mat22* Invert();
   import Mat22* Plus(Mat22* B);
   import Mat22* Multiply(Mat22* B);
+  import Mat22* Abs();
 };
 
 managed struct Body
@@ -75,6 +77,8 @@ managed struct Joint
 
 managed struct FeaturePair
 {
+  static import FeaturePair* Create();
+  
   char inEdge1;
   char outEdge1;
   char inEdge2;
