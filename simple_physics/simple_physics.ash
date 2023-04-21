@@ -1,4 +1,5 @@
 // new module header
+#define FLT_MAX 340282346638528859811704183484516925440.0
 #define MAX_POINTS 32
 #define MAX_ARBITERS 16
 #define MAX_BODIES 256
@@ -131,10 +132,12 @@ managed struct Arbiters
   
   Arbiter* a[MAX_ARBITERS];
   int a_count;
+  import static Arbiters* Create();
 };
 
 struct World
 {
+  import void Init(float gravity_x, float gravity_y, int iterations = 10);
 	import void AddBody(Body* body);
 	import void AddJoint(Joint* joint);
 	import void Clear();
