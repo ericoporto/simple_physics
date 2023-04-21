@@ -34,7 +34,8 @@ managed struct Mat22
 };
 
 managed struct Body
-{  
+{
+  import static Body* Create();
 	float position_x, position_y;
 	float rotation;
 
@@ -66,7 +67,7 @@ managed struct Joint
 	float biasFactor;
 	float softness;
   
-	import void Set(Body* body1, Body* body2, const Vec2* anchor);
+	import void Set(Body* body1, Body* body2, Vec2* anchor);
 
 	import void PreStep(float inv_dt);
 	import void ApplyImpulse();
