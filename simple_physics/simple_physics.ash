@@ -95,12 +95,7 @@ managed struct Contact
 	float massNormal, massTangent;
 	float bias;
 	FeaturePair* feature;
-};
-
-managed struct ArbiterKey
-{
-	Body* body1;
-	Body* body2;
+  import void CopyTo(Contact* c);
 };
 
 managed struct Arbiter
@@ -112,7 +107,7 @@ managed struct Arbiter
 	import void PreStep(float inv_dt);
 	import void ApplyImpulse();
 
-	Contact* contacts[MAX_POINTS];
+	Contact* contacts[];
 	int numContacts;
 
 	Body* body1;
@@ -122,12 +117,15 @@ managed struct Arbiter
 	float friction;
 };
 
-
-
 managed struct Arbiters
 {
-  ArbiterKey* key;
-  Arbiter* value;  
+  import void Add(Arbiter* arb);
+  import void Remove(Body* b1, Body* b2);
+  import Arbiter* Get(Body* b1, Body* b2);
+  import Clear();
+  
+  Arbiter* a[MAX_ARBITERS];
+  int a_count;
 };
 
 struct World
@@ -141,8 +139,11 @@ struct World
 	import void BroadPhase();
 
 	Body* bodies[MAX_BODIES];
-	Joint* joints[MAX_JOINTS];
-	Arbiters* arbiters[MAX_ARBITERS];
+	int body_count;
+  Joint* joints[MAX_JOINTS];
+  int joint_count;
+	Arbiters* arbiters;
+  
 	Vec2* gravity;
 	int iterations;
 	static import attribute bool accumulateImpulses;
