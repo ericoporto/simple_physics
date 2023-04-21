@@ -16,8 +16,8 @@ managed struct Vec2
   import Vec2* Plus(Vec2* vb);
   import Vec2* Scale(float a);
   import float Length();
-  import float Dot(const Vec2* b);
-  import float Cross(const Vec2* b);
+  import float Dot(Vec2* b);
+  import float Cross(Vec2* b);
 };
 
 managed struct Mat22
@@ -29,8 +29,8 @@ managed struct Mat22
   import static Mat22* NewFromVec2(Vec2* col1, Vec2* col2);
   import Mat22* Transpose();
   import Mat22* Invert();
-  import Mat22* Plus(const Mat22* B);
-  import Mat22* Multiply(const Mat22* B);
+  import Mat22* Plus(Mat22* B);
+  import Mat22* Multiply(Mat22* B);
 };
 
 managed struct Body
@@ -122,7 +122,7 @@ managed struct Arbiters
   import void Add(Arbiter* arb);
   import void Remove(Body* b1, Body* b2);
   import Arbiter* Get(Body* b1, Body* b2);
-  import Clear();
+  import void Clear();
   
   Arbiter* a[MAX_ARBITERS];
   int a_count;
