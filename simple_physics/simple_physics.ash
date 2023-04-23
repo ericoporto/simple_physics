@@ -60,6 +60,7 @@ managed struct Body
 
 managed struct Joint
 {
+  import static Joint* Create();
 	Mat22* M;
 	Vec2* localAnchor1, localAnchor2;
 	Vec2* r1, r2;
