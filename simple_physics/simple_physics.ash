@@ -104,7 +104,7 @@ managed struct Contact
 	float massNormal, massTangent;
 	float bias;
 	FeaturePair* feature;
-  import void CopyTo(Contact* c);
+  import Contact* CopyTo(Contact* c);
 };
 
 managed struct Arbiter
