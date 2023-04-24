@@ -4,7 +4,7 @@
 #define MAX_ARBITERS 16
 #define MAX_BODIES 256
 #define MAX_JOINTS 256
-#define MAX_CONTACTS 4
+#define MAX_CONTACTS 2
 
 managed struct Vec2
 {
