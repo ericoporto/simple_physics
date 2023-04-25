@@ -2075,6 +2075,46 @@
               </GUILabel>
             </Controls>
           </GUIMain>
+          <GUIMain>
+            <NormalGUI>
+              <BackgroundColor>0</BackgroundColor>
+              <BackgroundImage>0</BackgroundImage>
+              <BlendMode>Normal</BlendMode>
+              <BorderColor>2</BorderColor>
+              <Clickable>False</Clickable>
+              <Height>200</Height>
+              <ID>9</ID>
+              <Left>0</Left>
+              <Name>gGui1</Name>
+              <OnClick />
+              <PopupStyle>Normal</PopupStyle>
+              <PopupYPos>0</PopupYPos>
+              <Top>0</Top>
+              <Transparency>60</Transparency>
+              <Visible>True</Visible>
+              <Width>320</Width>
+              <ZOrder>0</ZOrder>
+            </NormalGUI>
+            <Controls>
+              <GUILabel>
+                <Clickable>True</Clickable>
+                <Enabled>True</Enabled>
+                <Font>1</Font>
+                <Height>181</Height>
+                <ID>0</ID>
+                <Left>13</Left>
+                <Locked>False</Locked>
+                <Name>lbldbg</Name>
+                <Text xml:space="preserve">New Label</Text>
+                <TextAlignment>Left</TextAlignment>
+                <TextColor>65535</TextColor>
+                <Top>7</Top>
+                <Visible>True</Visible>
+                <Width>292</Width>
+                <ZOrder>0</ZOrder>
+              </GUILabel>
+            </Controls>
+          </GUIMain>
         </GUIs>
       </GUIFolder>
     </GUIs>

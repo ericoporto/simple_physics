@@ -12,6 +12,7 @@ managed struct Vec2
 
   import static Vec2* New(float x, float y); // $AUTOCOMPLETESTATICONLY$
  	import void Set(float x, float y);
+  import void SetV(Vec2* v);
   import Vec2* Abs();
   import Vec2* Negate();
 	import Vec2* Minus(Vec2* vb);
