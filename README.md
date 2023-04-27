@@ -4,7 +4,7 @@ box2d lite ported to ags script
 
 ![](https://user-images.githubusercontent.com/2244442/234153243-03c043fe-654c-46d0-aadd-b3116c9de0d3.gif)
 
-requires  AGS4 with managed pointers in managed structs support. Tests done with legacy aga compiler, probably works too with the new ags compiler.
+requires  AGS4 with managed pointers in managed structs support. Tests done with legacy ags compiler, probably works too with the new ags compiler.
 
 I will probably delete/archive this in the future when I figure out improvements to make this more useful/performant and re-submit under a repository with a different name.
 
