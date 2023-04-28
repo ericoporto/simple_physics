@@ -40,3 +40,6 @@ ags-tar.cmd
 *.kra
 *.ase
 *.bak
+
+# I don't need backups I randomly make
+*.zip
