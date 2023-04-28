@@ -87,8 +87,8 @@ managed struct FeaturePair
   char inEdge2;
   char outEdge2;
   import attribute int value;
-  import int get_value();
-  import void set_value(int value);
+  import int get_value(); // $AUTOCOMPLETEIGNORE$
+  import void set_value(int value); // $AUTOCOMPLETEIGNORE$
 };
 
 managed struct Contact
@@ -159,12 +159,12 @@ struct World
 	Vec2* gravity;
 	int iterations;
 	static import attribute bool accumulateImpulses;
-  static import bool get_accumulateImpulses();
-  static import void set_accumulateImpulses(bool value);
+  static import bool get_accumulateImpulses(); // $AUTOCOMPLETEIGNORE$
+  static import void set_accumulateImpulses(bool value); // $AUTOCOMPLETEIGNORE$
 	static import attribute bool warmStarting;
-  static import bool get_warmStarting();
-  static import void set_warmStarting(bool value);
+  static import bool get_warmStarting(); // $AUTOCOMPLETEIGNORE$
+  static import void set_warmStarting(bool value); // $AUTOCOMPLETEIGNORE$
 	static import attribute bool positionCorrection;
-  static import bool get_positionCorrection();
-  static import void set_positionCorrection(bool value);
+  static import bool get_positionCorrection(); // $AUTOCOMPLETEIGNORE$
+  static import void set_positionCorrection(bool value); // $AUTOCOMPLETEIGNORE$
 };
